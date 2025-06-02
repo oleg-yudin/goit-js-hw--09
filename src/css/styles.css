@@ -65,6 +65,7 @@ img {
     max-width: 100%;
     height: auto;
 }
+/*  */
 .header {
     padding: 20px 0;
 }
@@ -128,3 +129,21 @@ ul {
         .back-link:hover::before {
             opacity: 1;
             animation-play-state: running;     }
+
+/*  */
+.gallery {
+    padding: 24px, 156px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.gallery-image {
+    width: 100%;
+}
+
+.gallery-item {
+    list-style-type: none;
+    width: calc((100% - 48px) / 3);
+}
