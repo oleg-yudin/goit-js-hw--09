@@ -1,3 +1,7 @@
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+
 const images = [
       {
         preview:
@@ -66,9 +70,9 @@ const images = [
     
 
 const container = document.querySelector(".gallery");
-container.insertAdjacentHTML("afterbegin", callback(images));
+container.insertAdjacentHTML("afterbegin", createGalleryMarkup(images));
 
-function callback(arr) {
+function createGalleryMarkup(arr) {
     return arr.map(item => `
         <li class="gallery-item">
             <a class="gallery-link" href="${item.original}">
@@ -82,16 +86,9 @@ function callback(arr) {
         `).join("");
 };
 
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
-
 document.addEventListener('DOMContentLoaded', () => {
-    new SimpleLightbox('.gallery-link', {
-        captions: true,                 
-        captionSelector: 'img',          
-        captionType: 'attr',           
-        captionsData: 'alt',             
-        captionPosition: 'bottom',     
+    new SimpleLightbox('.gallery-link', {          
+        captionsData: 'alt',                  
         captionDelay: 250   
     }); 
 });
