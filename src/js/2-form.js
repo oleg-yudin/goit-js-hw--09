@@ -20,16 +20,16 @@ function info(event) {
         formData.message = event.target.value.trim();
     }
     localStorage.setItem(KEY, JSON.stringify(formData));
-       
+    
 }
 
 function text() {
-    const meSage = localStorage.getItem(KEY);
-    // console.log(JSON.parse(message).email);
+    const messageText = JSON.parse(localStorage.getItem(KEY));
+    // console.log(messageText);
     
-    if (meSage) {
-        form.elements.email.value = JSON.parse(meSage).email;
-        form.elements.message.value = JSON.parse(meSage).message;
+    if (messageText) {
+        form.elements.email.value = messageText.email;
+        form.elements.message.value = messageText.message;
     }
     
 }
@@ -42,6 +42,7 @@ function send(event) {
     const textArea = event.target.elements.message.value;
     if (!emailArea || !textArea) {
         window.alert("Fill please all fields");
+        return;
     }
     console.log(formData);
     
