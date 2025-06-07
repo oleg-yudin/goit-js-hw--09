@@ -30,6 +30,8 @@ function text() {
     if (messageText) {
         form.elements.email.value = messageText.email;
         form.elements.message.value = messageText.message;
+        formData.email = messageText.email;
+        formData.message = messageText.message;
     }
     
 }
@@ -45,6 +47,7 @@ function send(event) {
         return;
     }
     console.log(formData);
+    // console.log(JSON.parse(localStorage.getItem(KEY)));
     
    
     localStorage.removeItem(KEY);
